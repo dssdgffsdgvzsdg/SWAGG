@@ -2,7 +2,7 @@
  "id": 133175713,
     "name": "ORBIT",
     "author": "MindCap",
-    "creators": [],
+    "creators": ["MindCap"],
     "verifier": "dovvin",
     "verification": "https://www.youtube.com/watch?v=0QYibxUS3rA",
     "percentToQualify": "100",
