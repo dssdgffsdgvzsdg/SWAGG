@@ -1,25 +1,13 @@
-<title>SWAGG DEMON LIST</title>
-<meta name="description" content="The SWAGG Demon List that Consists of the Top 150 Hardest Completions Beaten by SWAGG Clan." />
-<link rel="canonical" href="https://swagg.demonlist" />
-
-<!-- Open Graph (Facebook, LinkedIn, Discord, Slack) -->
-<meta property="og:title" content="SWAGG DEMON LIST" />
-<meta property="og:description" content="The SWAGG Demon List that Consists of the Top 150 Hardest Completions Beaten by SWAGG Clan." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://swagg.demonlist" />
-<meta property="og:image" content="https://media.discordapp.net/attachments/1533941868633784360/1534609828075278469/list_icon.png?ex=6a74c046&amp;is=6a736ec6&amp;hm=0cd5508e63d085597f86ce7664e4cd2a4b84686aa4dc131258934859a5932543&amp;=&amp;format=webp&amp;quality=lossless" />
-<meta property="og:site_name" content="SWAGG" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SWAGG DEMON LIST" />
-<meta name="twitter:description" content="The SWAGG Demon List that Consists of the Top 150 Hardest Completions Beaten by SWAGG Clan." />
-<meta name="twitter:image" content="https://media.discordapp.net/attachments/1533941868633784360/1534609828075278469/list_icon.png?ex=6a74c046&amp;is=6a736ec6&amp;hm=0cd5508e63d085597f86ce7664e4cd2a4b84686aa4dc131258934859a5932543&amp;=&amp;format=webp&amp;quality=lossless" />
-<meta name="twitter:site" content="swagg" />
-
-        <!-- Replace your server icon by uploading an image file named "list_icon.png"-->
-        <link rel="icon" href="/list_icon.png" />
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=1024" />
+        <meta property="og:title" content="Conix Challenge List" />
+        <meta property="og:description" content="A list of community-submitted challenges ranked by difficulty" />
+        <meta property="og:image" content="/assets/CCicon.png" />
+        <title>SWAGG Demon List</title>
+        <link rel="icon" href="/assets/CCicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -30,27 +18,26 @@
         <link rel="stylesheet" type="text/css" href="/css/typography.css" />
         <link rel="stylesheet" type="text/css" href="/css/main.css" />
         <link rel="stylesheet" type="text/css" href="/css/pages/list.css" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="/css/pages/leaderboard.css"
-        />
+        <link rel="stylesheet" type="text/css" href="/css/pages/leaderboard.css" />
         <link rel="stylesheet" type="text/css" href="/css/pages/roulette.css" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/packs.css" />
         <link rel="stylesheet" type="text/css" href="/css/components/nav.css" />
         <link rel="stylesheet" type="text/css" href="/css/components/btn.css" />
+        <link rel="stylesheet" type="text/css" href="/css/pages/grind.css" />
         <link
             rel="stylesheet"
             type="text/css"
             href="/css/components/tabs.css"
         />
-        <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
-        <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
+        <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js"></script>
+        <script src="https://unpkg.com/vue-router@4.5.0/dist/vue-router.global.prod.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pako@2.0.4/dist/pako.min.js"></script>
         <script type="module" src="/js/main.js"></script>
     </head>
     <body id="app">
         <header :class="{ dark: store.dark }">
             <div class="logo">
-                <h2>SWAGG DEMONLIST</h2>
+                <h2>SWAGG DEMON LIST</h2>
             </div>
             <nav class="nav">
                 <router-link class="nav__tab" to="/">
