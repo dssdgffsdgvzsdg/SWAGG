@@ -1,74 +1,13 @@
  [
     {
         "role": "owner",
-        "name": "Duckly",
-        "link": "https://www.youtube.com/@zDuckly"
+        "name": "ilysian",
+        "link": ""
     },
     {
         "role": "admin",
-        "name": "MrFrog",
-        "link": "https://www.youtube.com/channel/UClHRCzPWKhnBSx9MeWN0qsw"
-    },
-    {
-        "role": "admin",
-        "name": "uDaririn",
-        "link": "https://www.youtube.com/@gddinesla"
-    },
-       {
-        "role": "admin",
-        "name": "Shiver",
-        "link": "https://www.youtube.com/channel/UCgheYORDhkw4hxBSn8HLuRg"     
-    },
-  
-    {
-        "role": "helper",
-        "name": "fede",
-        "link": "https://www.youtube.com/@ffedee_e"  
-    },
-   {
-        "role": "helper",
         "name": "vipexx",
-        "link": "https://www.youtube.com/@vipexx_1"  
-    },
-   {
-        "role": "helper",
-        "name": "Garri",
-        "link": "https://www.youtube.com/@Garri_YT"  
-    },
-   {
-        "role": "helper",
-        "name": "Reflex geo",
-        "link": "https://www.youtube.com/@Reflex_geozz"  
-    },
-    {
-        "role": "helper",
-        "name": "pcwn",
-        "link": "https://www.youtube.com/@purel-water-bottle"  
-    },
-    {
-        "role": "helper",
-        "name": "Brian_Cheese",
-        "link": "https://www.youtube.com/@BrianCheese"  
-    },
-   {
-        "role": "helper",
-        "name": "K1tty",
-        "link": "https://www.youtube.com/@notK1ttyy"  
-    },
-    {
-        "role": "helper",
-        "name": "surge",
-        "link": "https://www.youtube.com/@gmdsurge"  
-    },
-    {
-        "role": "helper",
-        "name": "K1tty",
-        "link": "https://www.youtube.com/@notK1ttyy"  
-    },
-    {
-        "role": "helper",
-        "name": "PersonNub",
-        "link": "https://www.twitch.tv/personnub"  
+        "link": "" 
     }
   
   
