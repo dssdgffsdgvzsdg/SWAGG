@@ -119,12 +119,27 @@ export function score(rank, difficulty, percent, minPercent, list) {
         
         let expLength = fetchTierMinimum(list, diffDivider); // Gets the number of levels
         // from the tier above diffDivider to the #1 ranked level.
+ 
+        // Guard: if the list currently has zero levels at exactly the
+        // Mythical tier (diffDivider), fetchTierMinimum returns 0, which
+        // would divide by -1 below and hand Math.pow a negative base —
+        // and a negative base with the fractional curveBuff exponent
+        // evaluates to NaN in JS (not just a wrong number). Falling back
+        // to `rank` keeps the ratio at a safe non-negative value instead.
+        // Same protection covers the case where there's exactly one
+        // Mythical level (expLength - 1 === 0, a division-by-zero).
+        const safeExpLength = expLength > 1 ? expLength : rank + 1;
         
         const scaleFactor = Math.log(minExpScore / maxExpScore); // Gets the scale factor
         // for the exponential function.
+ 
+        // Clamped to 0 as a last resort — belt-and-suspenders in case any
+        // future change to the ranking data still produces a negative
+        // ratio here, since Math.pow(negative, curveBuff) is NaN either way.
+        const ratio = Math.max((rank - 1) / (safeExpLength - 1), 0);
         
         // Calculates the exponential score
-        let expScore = maxExpScore * Math.exp(scaleFactor * Math.pow((rank - 1) / (expLength - 1), curveBuff));
+        let expScore = maxExpScore * Math.exp(scaleFactor * Math.pow(ratio, curveBuff));
         
         // Rounds up the value of expScore to minExpScore if it's below the value of
         // minExpScore, and rounds down the value of expScore to maxExpScore if it's above
