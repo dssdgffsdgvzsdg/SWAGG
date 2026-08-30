@@ -1,5 +1,5 @@
 import { round } from './util.js';
-import { fetchTierLength, fetchTierMinimum } from "./content.js";
+import { fetchTierLength, fetchTierMinimum, fetchExpBoundary } from "./content.js";
  
 // ------------------------------------------------------------------------------------------
 // Welcome to the site's configuration! This file allows us to change: 
@@ -117,26 +117,25 @@ export function score(rank, difficulty, percent, minPercent, list) {
     else { // Executes this code if the previous condition wasn't true (in other words, if
            // the difficulty tier is extreme or above).
         
-        let expLength = fetchTierMinimum(list, diffDivider); // Gets the number of levels
-        // from the tier above diffDivider to the #1 ranked level.
- 
-        // Guard: if the list currently has zero levels at exactly the
-        // Mythical tier (diffDivider), fetchTierMinimum returns 0, which
-        // would divide by -1 below and hand Math.pow a negative base —
-        // and a negative base with the fractional curveBuff exponent
-        // evaluates to NaN in JS (not just a wrong number). Falling back
-        // to `rank` keeps the ratio at a safe non-negative value instead.
-        // Same protection covers the case where there's exactly one
-        // Mythical level (expLength - 1 === 0, a division-by-zero).
-        const safeExpLength = expLength > 1 ? expLength : rank + 1;
+        // Gets the worst (highest) rank among all levels at diffDivider or
+        // harder currently on the list — i.e. the boundary between the
+        // linear and exponential portions of the curve. Using >= instead
+        // of === means this stays correct even if the Mythical tier
+        // itself is currently empty (it'll fall through to whatever tier
+        // IS the easiest one with levels on it, e.g. Silent) — see
+        // fetchExpBoundary's own comment in content.js for why.
+        const expLength = fetchExpBoundary(list, diffDivider);
         
         const scaleFactor = Math.log(minExpScore / maxExpScore); // Gets the scale factor
         // for the exponential function.
  
-        // Clamped to 0 as a last resort — belt-and-suspenders in case any
-        // future change to the ranking data still produces a negative
-        // ratio here, since Math.pow(negative, curveBuff) is NaN either way.
-        const ratio = Math.max((rank - 1) / (safeExpLength - 1), 0);
+        // If this level is the ONLY one in the exponential band so far
+        // (expLength <= 1 — e.g. a single Silent-tier level with nothing
+        // else at Mythical+ yet), it's necessarily both the best- and
+        // worst-ranked exponential level at once, so the ratio should
+        // just be 0 (top of the curve). Computing it normally would
+        // divide by zero (0/0 = NaN in JS), so short-circuit instead.
+        const ratio = expLength > 1 ? Math.max((rank - 1) / (expLength - 1), 0) : 0;
         
         // Calculates the exponential score
         let expScore = maxExpScore * Math.exp(scaleFactor * Math.pow(ratio, curveBuff));
