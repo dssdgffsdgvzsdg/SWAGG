@@ -1,6 +1,6 @@
 import { fetchHighestEnjoyment, fetchLowestEnjoyment, fetchTierLength, fetchTotalScore } from "../../content.js";
 import { localize } from "../../util.js";
-
+ 
 export default {
     props: {
         level: {
@@ -27,8 +27,8 @@ export default {
             <tr style="justify-content: center; align-items: center;">
                 <td><h3 class="tier-info" style="padding-bottom:0.5rem">Lowest enjoyment: {{ fetchLowestEnjoyment(list, level.difficulty) || "N/A" }}</h3></td>
             </tr>
-            <p style="padding-top:1.5rem">The levels {{ descending ? 'below' : 'above' }} are {{ ["Beginner", "Easy", "Medium", "Hard", "Insane", "Mythical", "Extreme", "Supreme", "Ethereal", "Legendary", "Silent", "Impossible"][level.difficulty] }} Challenges.</p>
-
+            <p style="padding-top:1.5rem">The levels {{ descending ? 'below' : 'above' }} are {{ ["Beginner", "Easy", "Medium", "Hard", "Insane", "Mythical", "Extreme", "Supreme", "Ethereal", "Legendary", "Silent", "Impossible"][level.difficulty] }} Levels.</p>
+ 
         </div>
     `,
     methods: {
@@ -38,5 +38,6 @@ export default {
         fetchHighestEnjoyment,
         fetchLowestEnjoyment,
     }
-
+ 
 }
+ 
